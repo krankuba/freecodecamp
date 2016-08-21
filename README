@@ -1,6 +1,7 @@
 contents:
 
 <basic algorithm scripting>
+
 caesars-cipher.js
 check-for-palindromes.js
 chunky-monkey.js
@@ -20,15 +21,8 @@ where-do-i-belong.js
 
 -
 
-<advanced algorithm scripting> 
-exact-change.js
-inventory-update.js
-symmetric-difference.js
-validate-us-telephone-numbers.js
-
--
-
 <intermediate algorithm scripting>
+
 arguments-optional.js
 binary-agents.js
 boo-who.js
@@ -53,5 +47,22 @@ wherefore-art-thou.js
 
 -
 
+<advanced algorithm scripting>
+
+exact-change.js
+inventory-update.js
+symmetric-difference.js
+validate-us-telephone-numbers.js
+<advanced algorithm scripting>
+exact-change.js
+inventory-update.js
+symmetric-difference.js
+validate-us-telephone-numbers.js
+
+-
+
 <projects>
+
 show the local weather.html
+
+-
