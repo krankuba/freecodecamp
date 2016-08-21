@@ -1,11 +1,17 @@
 contents:
 
-intermediate algorithm scripting folder
 -
 advanced algorithm scripting folder
+exact-change.js  inventory-update.js  symmetric-difference.js  validate-us-telephone-numbers.js
+
 -
-intermediate front-end projects
+intermediate algorithm scripting
+arguments-optional.js     dna-pairing.js         pig-latin.js                 spinal-tap-case.js                wherefore-art-thou.js
+binary-agents.js          drop-it.js             roman-numeral-converter.js   streamroller.js
+boo-who.js                everything-be-true.js  search-and-replace.js        sum-all-numbers-in-a-range.js
+convert-html-entities.js  finders-keepers.js     smallest-common-multiple.js  sum-all-odd-fibonacci-numbers.js
+diff-two-arrays.js        missing-letters.js     sorted-union.js              sum-all-primes.js
+
 -
-advanced front-end projects
--
-<a href="#">link</a>
+front-end projects
+show the local weather.html
