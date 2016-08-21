@@ -1,17 +1,36 @@
 contents:
 
 -
-advanced algorithm scripting folder
-exact-change.js  inventory-update.js  symmetric-difference.js  validate-us-telephone-numbers.js
+advanced algorithm scripting 
+exact-change.js
+inventory-update.js
+symmetric-difference.js
+validate-us-telephone-numbers.js
 
 -
 intermediate algorithm scripting
-arguments-optional.js     dna-pairing.js         pig-latin.js                 spinal-tap-case.js                wherefore-art-thou.js
-binary-agents.js          drop-it.js             roman-numeral-converter.js   streamroller.js
-boo-who.js                everything-be-true.js  search-and-replace.js        sum-all-numbers-in-a-range.js
-convert-html-entities.js  finders-keepers.js     smallest-common-multiple.js  sum-all-odd-fibonacci-numbers.js
-diff-two-arrays.js        missing-letters.js     sorted-union.js              sum-all-primes.js
+arguments-optional.js
+binary-agents.js
+boo-who.js
+convert-html-entities.js
+diff-two-arrays.js
+dna-pairing.js
+drop-it.js
+everything-be-true.js
+finders-keepers.js
+missing-letters.js
+pig-latin.js
+roman-numeral-converter.js
+search-and-replace.js
+smallest-common-multiple.js
+sorted-union.js
+spinal-tap-case.js
+streamroller.js
+sum-all-numbers-in-a-range.js
+sum-all-odd-fibonacci-numbers.js
+sum-all-primes.js
+wherefore-art-thou.js
 
 -
-front-end projects
+projects
 show the local weather.html
