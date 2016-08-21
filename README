@@ -1,5 +1,23 @@
 contents:
 
+<basic algorithm scripting>
+caesars-cipher.js
+check-for-palindromes.js
+chunky-monkey.js
+confirm-the-ending.js
+factorialize-a-number.js
+falsy-bouncer.js
+find-the-longest-word-in-a-string.js
+mutations.js
+repeat-a-string-repeat-a-string.js
+return-largest-numbers-in-arrays.js
+reverse-a-string.js
+seek-and-destroy.js
+slasher-flick.js
+title-case-a-sentence.js
+truncate-a-string.js
+where-do-i-belong.js
+
 -
 
 <advanced algorithm scripting> 
