@@ -53,18 +53,17 @@ exact-change.js
 inventory-update.js
 symmetric-difference.js
 validate-us-telephone-numbers.js
-<advanced algorithm scripting>
-exact-change.js
-inventory-update.js
-symmetric-difference.js
-validate-us-telephone-numbers.js
+no-repeats-please.js
+friendly-date-ranges.js
 
 -
 
 <projects>
 
 show-the-local-weather.html
+build-a-javascript-calculator.html
 build-a-wikipedia-viewer.html
 build-a-random-quote-machine.html
 use-the-twitchtv-json-api.html
+
 -
