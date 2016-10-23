@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>calc</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lato:400,900|Roboto' rel='stylesheet' type='text/css'>
+<style>
+    table {
+        width: 100%;
+        background-color: #f2f2f2;
+        color: black;
+        text-align: right;
+    }
+    button {
+        width: 100%;
+        height: 120%;
+    }
+    .container {
+         font-family: 'Roboto', sans-serif;
+         margin-top: 100px;
+    }
+    .screen-row {
+        background-color: #2d2929;
+        color: white;
+        }
+    .screen-content {
+        font-family: 'Prompt', sans-serif;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .title {
+        letter-spacing: 7px;
+        font-size: 12px;
+    }
+</style>
+</head>
+<body>
+  <div class="container" align=center>
+      <div class="col-sm-4 col-sm-offset-4 well">
+          <p class="title">JAVASCRIPT CALCULATOR</p>
+          <table >
+              <tr height=60 class="screen-row">
+                  <td><h1 id="demo" class="screen-content">0</h1></td>
+              </tr>
+              <tr height=20 class="screen-row">
+                  <td><p id="demo2" class="screen-content">0</p></td>
+              </tr>
+            </table>
+            <table>
+              <tr height=30>
+                  <td><button onclick="key7()">7</button></td>
+                  <td><button onclick="key8()">8</button></td>
+                  <td><button onclick="key9()">9</button></td>
+                  <td><button onclick="funcDiv()">/</button></td>
+              </tr>
+              <tr height=30>
+                  <td><button onclick="key4()">4</button></td>
+                  <td><button onclick="key5()">5</button></td>
+                  <td><button onclick="key6()">6</button></td>
+                  <td><button onclick="funcMultiply()">x</button></td>
+              </tr>
+              <tr height=30>
+                  <td><button onclick="key1()">1</button></td>
+                  <td><button onclick="key2()">2</button></td>
+                  <td><button onclick="key3()">3</button></td>
+                  <td><button onclick="funcSub()">-</button></td>
+              </tr>
+              <tr height=30>
+                  <td colspan="2"><button onclick="key0()">0</button></td>
+                  <td><button onclick="funcDot()">,</button></td>
+                  <td><button onclick="funcAdd()">+</button></td>
+              </tr>
+              <tr height=30>
+                  <td colspan="2"><button onclick="funcClear()">clear</button></td>
+                  <td colspan="2"><button onclick="funcTotal()">=</button></td>
+              </tr>
+          </table>
+      </div>
+   </div>
+<script>
+var number = "",
+    temp = "",
+    total = 0,
+    arr = [],
+    arrShow = [],
+    arrTemp = [],
+    dotOn = false;;
+
+function funcClear() {
+    number = "";
+    temp = "";
+    arr = [];
+    dotOn = false;
+    arrShow = [];
+    arrTemp = [];
+    document.getElementById("demo").innerHTML = 0;
+    document.getElementById("demo2").innerHTML = 0;
+}
+function funcReset() {
+    setTimeout(function(){ funcClear(); }, 3000);
+}
+function funcTotal() {
+    if (number) {
+        arr.push(number);
+        arrShow.push(number);
+        number = "";
+    } else {
+        arr.pop();
+    }
+
+    total = arr.splice(0,1);
+
+    while (arr.length > 0) {
+        arrTemp = arr.splice(0, 2);
+        if (arrTemp[0] == '-') {total = (1*total) - (1*arrTemp[1]);}
+        if (arrTemp[0] == '+') {total = (1*total) + (1*arrTemp[1]);}
+        if (arrTemp[0] == '/') {total = (1*total) / (1*arrTemp[1]);}
+        if (arrTemp[0] == '*') {total = (1*total) * (1*arrTemp[1]);}
+        total = (Math.round(total * 100) / 100);
+        var totalStr = total.toString();
+        if (totalStr.length < 12) {
+            document.getElementById("demo").innerHTML = total;
+            document.getElementById("demo2").innerHTML = arrShow.join(' ');
+        } else {
+            document.getElementById("demo").innerHTML = "Number too big";
+            document.getElementById("demo2").innerHTML = "Resetting in 3 seconds...";
+            funcReset();
+        }
+    }
+    number = (Math.round(total * 100) / 100);
+    temp = "";
+    arr = [];
+    dotOn = false;
+    arrShow = [];
+    arrTemp = [];
+}
+function funcSub() {
+    if (number) {
+        arr.push(number);
+        arr.push('-');
+        arrShow.push(number);
+        arrShow.push('-');
+        temp = number;
+        number = "";
+        dotOn = false;
+        document.getElementById("demo").innerHTML = "-";
+        document.getElementById("demo2").innerHTML = arrShow.join(' ');
+    }
+}
+function funcAdd() {
+    if (number) {
+        arr.push(number);
+        arr.push('+');
+        arrShow.push(number);
+        arrShow.push('+');
+        temp = number;
+        number = "";
+        dotOn = false;
+        document.getElementById("demo").innerHTML = "+";
+        document.getElementById("demo2").innerHTML = arrShow.join(' ');
+    }
+}
+function funcDiv() {
+    if (number) {
+        arr.push(number);
+        arr.push('/');
+        arrShow.push(number);
+        arrShow.push('/');
+        temp = number;
+        number = "";
+        dotOn = false;
+        document.getElementById("demo").innerHTML = "/";
+        document.getElementById("demo2").innerHTML = arrShow.join(' ');
+    }
+}
+function funcMultiply() {
+    if (number) {
+        arr.push(number);
+        arr.push('*');
+        arrShow.push(number);
+        arrShow.push('*');
+        temp = number;
+        number = "";
+        dotOn = false;
+        document.getElementById("demo").innerHTML = "*";
+        document.getElementById("demo2").innerHTML = arrShow.join(' ');
+    }
+}
+function funcDot() {
+    if (number) {
+        if (!dotOn) {
+            dotOn = true;
+            number = number.concat(".");
+            document.getElementById("demo").innerHTML = number;
+            if (arrShow.length > 0) {
+                document.getElementById("demo2").innerHTML = arrShow.join(' ');
+            } else {
+                document.getElementById("demo2").innerHTML = 0;
+            }
+        }
+    }
+}
+function key0() {
+    if (number.length < 8) {
+        number = number.concat("0");
+        document.getElementById("demo").innerHTML = number;
+        if (arrShow.length > 0) {
+            document.getElementById("demo2").innerHTML = arrShow.join(' ');
+        } else {
+            document.getElementById("demo2").innerHTML = 0;
+        }
+    } else {
+        document.getElementById("demo2").innerHTML = "Number limit reached";
+    }
+}
+function key1() {
+    if (number.length < 8) {
+        number = number.concat("1");
+        document.getElementById("demo").innerHTML = number;
+        if (arrShow.length > 0) {
+            document.getElementById("demo2").innerHTML = arrShow.join(' ');
+        } else {
+            document.getElementById("demo2").innerHTML = 0;
+        }
+    } else {
+        document.getElementById("demo2").innerHTML = "Number limit reached";
+    }
+}
+function key2() {
+    if (number.length < 8) {
+        number = number.concat("2");
+        document.getElementById("demo").innerHTML = number;
+        if (arrShow.length > 0) {
+            document.getElementById("demo2").innerHTML = arrShow.join(' ');
+        } else {
+            document.getElementById("demo2").innerHTML = 0;
+        }
+    } else {
+        document.getElementById("demo2").innerHTML = "Number limit reached";
+    }
+}
+function key3() {
+    if (number.length < 8) {
+        number = number.concat("3");
+        document.getElementById("demo").innerHTML = number;
+        if (arrShow.length > 0) {
+            document.getElementById("demo2").innerHTML = arrShow.join(' ');
+        } else {
+            document.getElementById("demo2").innerHTML = 0;
+        }
+    } else {
+        document.getElementById("demo2").innerHTML = "Number limit reached";
+    }
+}
+function key4() {
+    if (number.length < 8) {
+        number = number.concat("4");
+        document.getElementById("demo").innerHTML = number;
+        if (arrShow.length > 0) {
+            document.getElementById("demo2").innerHTML = arrShow.join(' ');
+        } else {
+            document.getElementById("demo2").innerHTML = 0;
+        }
+    } else {
+        document.getElementById("demo2").innerHTML = "Number limit reached";
+    }
+}
+function key5() {
+    if (number.length < 8) {
+        number = number.concat("5");
+        document.getElementById("demo").innerHTML = number;
+        if (arrShow.length > 0) {
+            document.getElementById("demo2").innerHTML = arrShow.join(' ');
+        } else {
+            document.getElementById("demo2").innerHTML = 0;
+        }
+    } else {
+        document.getElementById("demo2").innerHTML = "Number limit reached";
+    }
+}
+function key6() {
+    if (number.length < 8) {
+        number = number.concat("6");
+        document.getElementById("demo").innerHTML = number;
+        if (arrShow.length > 0) {
+            document.getElementById("demo2").innerHTML = arrShow.join(' ');
+        } else {
+            document.getElementById("demo2").innerHTML = 0;
+        }
+    } else {
+        document.getElementById("demo2").innerHTML = "Number limit reached";
+    }
+}
+function key7() {
+    if (number.length < 8) {
+        number = number.concat("7");
+        document.getElementById("demo").innerHTML = number;
+        if (arrShow.length > 0) {
+            document.getElementById("demo2").innerHTML = arrShow.join(' ');
+          } else {
+              document.getElementById("demo2").innerHTML = 0;
+          }
+    } else {
+        document.getElementById("demo2").innerHTML = "Number limit reached";
+    }
+}
+function key8() {
+    if (number.length < 8) {
+        number = number.concat("8");
+        document.getElementById("demo").innerHTML = number;
+        if (arrShow.length > 0) {
+            document.getElementById("demo2").innerHTML = arrShow.join(' ');
+          } else {
+              document.getElementById("demo2").innerHTML = 0;
+        }
+    } else {
+        document.getElementById("demo2").innerHTML = "Number limit reached";
+    }
+}
+function key9() {
+    if (number.length < 8) {
+        number = number.concat("9");
+        document.getElementById("demo").innerHTML = number;
+        if (arrShow.length > 0) {
+            document.getElementById("demo2").innerHTML = arrShow.join(' ');
+        } else {
+            document.getElementById("demo2").innerHTML = 0;
+        }
+    } else {
+        document.getElementById("demo2").innerHTML = "Number limit reached";
+    }
+}
+</script>
+</body>
+</html>
