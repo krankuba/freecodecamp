@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>Pomodoro Clock</title>
+    <script data-require="angular.js@1.2.x" src="https://code.angularjs.org/1.2.28/angular.js" data-semver="1.2.28"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+</head>
+<body ng-controller="countController">
+    <div class="container" align=center>
+        <h2>{{title}}</h2>
+        <br>
+        <div class="row">
+            <div class="col-sm-1 col-sm-offset-4">
+                <br><br>
+                <span class="greenClass">Session</span><br>
+                <button ng-click="clockUp()">+</button><br>
+                {{clockTimeMin}}<br>
+                <button ng-click="clockDown()">-</button><br>
+            </div>
+            <div ng-hide="counterOn" class="col-sm-2">
+                <div clas="noMargin">
+                    <button ng-hide="counterOn" ng-click="startClock()">Start</button>
+                    <button ng-show="counterOn" ng-click="stopClock()">Stop</button>
+                    | <button ng-click="doReset()">Reset</button>
+                </div>
+                <h3>SESSION</h3>
+                <p class="counterClass">{{clockTimeMin}}:00</p>
+            </div>
+            <div ng-show="counterOn" class="col-sm-2">
+                <div clas="noMargin">
+                    <button ng-hide="counterOn" ng-click="startClock()">Start</button>
+                    <button ng-show="counterOn" ng-click="stopClock()">Stop</button>
+                    | <button ng-click="doReset()">Reset</button>
+                </div>
+                <h3 ng-show="session" class="greenClass">SESSION</h3>
+                <h3 ng-hide="session" class="redClass">PAUSE</h3>
+                <span class="counterClass">{{countdownMin}}:{{countdownSec}}</span>
+            </div>
+            <div class="col-sm-1">
+                <br><br>
+                <span class="redClass">Pause</span><br>
+                <button ng-click="pauseUp()">+</button><br>
+                {{pauseTimeMin}}<br>
+                <button ng-click="pauseDown()">-</button><br>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
